@@ -15,12 +15,24 @@ export function Events() {
 
   const [loading, setLoading] = useState(false);
 
+  const [selectedEvents, setSelectecEvents] = useState([]);
+
+  const [filterdItems, setFilteredItems] = useState([]);
+
+  const [eventTypes] = useState([
+    { id: "premium", name: "Premium" },
+    { id: "hackathon", name: "Hackathon" },
+    { id: "leap", name: "Leap" },
+    { id: "mission", name: "Mission" },
+    { id: "other", name: "Other" }
+  ]);
+
   useEffect(() => {
     setLoading(true);
     async function fetchEvents() {
       const events = await ServiceApi.getEvents();
-      console.log(events);
       setEvents(events);
+      setFilteredItems(events);
       setLoading(false);
     }
     fetchEvents();
@@ -33,14 +45,41 @@ export function Events() {
       );
   };
 
+  const handleFilterChange = (checked, etName) => {
+    let sEvents = selectedEvents;
+    let IsPremium = false;
+    if (etName === "premium") {
+      IsPremium = true;
+    }
+    if (!IsPremium) {
+      if (checked) {
+        sEvents = [...selectedEvents, etName];
+      } else {
+        sEvents = selectedEvents.filter(e => e !== etName);
+      }
+    }
+
+    setSelectecEvents(sEvents);
+    let filterItems = [];
+
+    if (sEvents.length > 0) {
+      filterItems = events.filter(
+        x => sEvents.indexOf(x.type.toString()) !== -1
+      );
+    } else {
+      filterItems = events;
+    }
+    if (IsPremium) filterItems = filterItems.filter(x => x.premium === true);   
+    setFilteredItems(filterItems);
+  };
+
   const renderEvents = events => {
-    console.log(events);
     return (
       <div className="container">
         {events.map(evt => (
           <div className="card" key={evt.name}>
             {evt.premium && (
-              <div class="ribbon">
+              <div className="ribbon">
                 <span>Premium</span>
               </div>
             )}
@@ -80,7 +119,7 @@ export function Events() {
               {!evt.deadlinePast && (
                 <span>
                   <button
-                    class="buttonSignup"
+                    className="buttonSignup"
                     style={{ verticalAlign: "middle" }}
                     onClick={() => handleSignup(evt.premium)}
                   >
@@ -89,7 +128,7 @@ export function Events() {
                 </span>
               )}
               <span>
-                <button class="button" style={{ verticalAlign: "middle" }}>
+                <button className="button" style={{ verticalAlign: "middle" }}>
                   <span>Details </span>
                 </button>
               </span>
@@ -124,7 +163,7 @@ export function Events() {
           <a href="#referral">Referral</a>
         </li>
         <li className="dropdown">
-          <a href='#' className="dropbtn">
+          <a href="#" className="dropbtn">
             More
             <FaAngleDown />
           </a>
@@ -132,36 +171,53 @@ export function Events() {
             <a href="#">Courses</a>
             <a href="#">Library</a>
           </div>
-        </li>        
+        </li>
       </ul>
       <div>
         <BlockUi tag="div" blocking={loading}>
+          <div className="filterList">
+            <div className="filter-label">Filter Events</div>
+            <ul>
+              {eventTypes.map(et => (
+                <li key={et.id}>
+                  <input
+                    type="checkbox"
+                    value={et.id}
+                    onChange={e => handleFilterChange(e.target.checked, et.id)}
+                  />{" "}
+                  {et.name}{" "}
+                </li>
+              ))}
+            </ul>
+          </div>
           <Collapsible trigger="Past Events" open={true}>
-            {renderEvents(events.filter(evt => evt.past === true))}
+            {renderEvents(filterdItems.filter(evt => evt.past === true))}
           </Collapsible>
           <Collapsible trigger="Upcoming Events" open={true}>
             <Collapsible trigger="Hackathon" open={true}>
               {renderEvents(
-                events.filter(
+                filterdItems.filter(
                   evt => evt.past === false && evt.type === "hackathon"
                 )
               )}
             </Collapsible>
             <Collapsible trigger="Leap" open={true}>
               {renderEvents(
-                events.filter(evt => evt.past === false && evt.type === "leap")
+                filterdItems.filter(
+                  evt => evt.past === false && evt.type === "leap"
+                )
               )}
             </Collapsible>
             <Collapsible trigger="Mission" open={true}>
               {renderEvents(
-                events.filter(
+                filterdItems.filter(
                   evt => evt.past === false && evt.type === "mission"
                 )
               )}
             </Collapsible>
             <Collapsible trigger="Other" open={true}>
               {renderEvents(
-                events.filter(
+                filterdItems.filter(
                   evt =>
                     evt.past === false &&
                     evt.type !== "mission" &&

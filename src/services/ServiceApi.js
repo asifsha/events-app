@@ -4,7 +4,7 @@ class ServiceApi {
     const data = [
       {
         name: "Onsite Interview",
-        type: "Meetup",
+        type: "other",
         date: "December 15 - 22, 2019",
         deadline: "3-Nov-19",
         deadlinePast: true,
@@ -69,7 +69,7 @@ class ServiceApi {
       },
 
       {
-        name: "Colombia Recruiting Mission",
+        name: "Colombia Mission",
         type: "mission",
         date: "March 7 - 08, 2020",
         deadline: "14-Feb-2020",
@@ -122,7 +122,7 @@ class ServiceApi {
       {
         name: "Relocation Summit 2019",
         type: "leap",
-        date: "November 27 - December 4, 2019",
+        date: "November 27 - 30, 2019",
         deadline: "26-Nov-2020",
         deadlinePast: false,
         location: "Winnipeg - Canada",
@@ -148,7 +148,7 @@ class ServiceApi {
 
       {
         name: "Interview Preparation Class",
-        type: "class",
+        type: "other",
         date: "April 3, 2019",
         deadline: "",
         deadlinePast: false,
@@ -161,7 +161,7 @@ class ServiceApi {
 
       {
         name: "Language Preparation Class",
-        type: "class",
+        type: "other",
         date: "February 3",
         deadline: "",
         deadlinePast: false,
@@ -174,7 +174,7 @@ class ServiceApi {
 
       {
         name: "Interview Practice Session",
-        type: "class",
+        type: "other",
         date: "November 27",
         deadline: "",
         deadlinePast: false,
