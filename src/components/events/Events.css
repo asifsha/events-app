@@ -1,0 +1,359 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: rgb(36, 71, 122);
+}
+
+li a,
+.dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: #333;
+}
+
+li a:hover,
+.dropdown:hover .dropbtn {
+  background-color: #111;
+  color: white;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.react-icons {
+  vertical-align: down;
+}
+
+.logo {
+  width: 153px;
+  height: 50px;
+  padding-right: 5px;
+  padding-left: 10px;
+}
+
+/* new car css */
+* {
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #444;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 10px;
+  position: relative;
+  background: #333;
+  width: 400px;
+  height: 79vh;
+  border-radius: 6px;
+  padding: 2rem;
+  color: #aaa;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.card__image-container {
+  margin: -2rem -2rem 1rem -2rem;
+}
+.card__line {
+  opacity: 0;
+  animation: LineFadeIn 0.8s 0.8s forwards ease-in;
+}
+.card__image {
+  opacity: 0;
+  animation: ImageFadeIn 0.8s 1.4s forwards;
+  height: 350px;
+}
+.card__title {
+  color: white;
+  margin-top: 0;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+.card__content {
+  margin-top: -2.5rem;
+  opacity: 0;
+  animation: ContentFadeIn 0.8s 1.6s forwards;
+}
+.deadline {
+  color: #ff6666;
+}
+.card__svg {
+  position: absolute;
+  left: 0;
+  top: 115px;
+}
+
+@keyframes LineFadeIn {
+  0% {
+    opacity: 0;
+    d: path(
+      "M 0 300 Q 0 300 0 300 Q 0 300 0 300 C 0 300 0 300 0 300 Q 0 300 0 300 "
+    );
+    stroke: #fff;
+  }
+  50% {
+    opacity: 1;
+    d: path(
+      "M 0 300 Q 50 300 100 300 Q 250 300 350 300 C 350 300 500 300 650 300 Q 750 300 800 300"
+    );
+    stroke: #888bff;
+  }
+  100% {
+    opacity: 1;
+    d: path(
+      "M -2 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 802 400"
+    );
+    stroke: #545581;
+  }
+}
+@keyframes ContentFadeIn {
+  0% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes ImageFadeIn {
+  0% {
+    transform: translate(-0.5rem, -0.5rem) scale(1.05);
+    opacity: 0;
+    filter: blur(2px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(2px);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.flag {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  float: right;
+}
+.Collapsible__contentInner {
+  padding: 10px;
+  border: 1px solid #ebebeb;
+  border-top: 0;
+  overflow-y:scroll;
+}
+.Collapsible__contentInner p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.Collapsible__contentInner p:last-child {
+  margin-bottom: 0;
+}
+
+.Collapsible__trigger {
+  display: block;
+  font-weight: 400;
+  text-decoration: none;
+  color: #333333;
+  position: relative;
+  border: 1px solid white;
+  padding: 10px;
+  background: rgb(36, 71, 122);
+  color: white;
+  text-align: left;
+}
+.Collapsible__trigger:after {
+  font-family: "FontAwesome";
+  content: "\f107";
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: block;
+  transition: transform 300ms;
+}
+.Collapsible__trigger.is-open:after {
+  transform: rotateZ(180deg);
+}
+.Collapsible__trigger.is-disabled {
+  opacity: 0.5;
+  background-color: grey;
+}
+.CustomTriggerCSS {
+  background-color: lightcoral;
+  transition: background-color 200ms ease;
+}
+
+.CustomTriggerCSS--open {
+  background-color: darkslateblue;
+}
+
+.box {
+  width: 200px; height: 300px;
+  position: relative;
+  border: 1px solid #BBB;
+  background: #EEE;
+}
+.ribbon {
+  position: absolute;
+  left: -5px; top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px; height: 75px;
+  text-align: right;
+}
+.ribbon span {
+  font-size: 10px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  width: 100px;
+  display: block;
+  background: #79A70A;
+  background: linear-gradient(#2989d8 0%, #1e5799 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 19px; left: -21px;
+}
+.ribbon span::before {
+  content: "";
+  position: absolute; left: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid #1e5799;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #1e5799;
+}
+.ribbon span::after {
+  content: "";
+  position: absolute; right: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #1e5799;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #1e5799;
+}
+.pb-container {
+  width:120px !important;
+}
+.button {
+  display: inline-block;  
+  background-color: #f4511e;
+  border: 2px;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;  
+  width: 120px;
+  height: 55px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;  
+  border-radius: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.buttonSignup {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}
