@@ -13,3 +13,6 @@ The events are showing in two collapsible panels, Past and Upcoming events, then
 
 ## How to Use?
 Clone this repo, cd events-app, npm install, npm start
+
+## Live Demo
+https://vanhack-events.herokuapp.com
