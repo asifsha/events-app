@@ -14,6 +14,7 @@ React app to show multiple types of events on a single page
 - Users can filter the events.
 - I used a dark theme, I apply premium ribbon to show premium events and distinguish it from other events.
 - I did not use any style framework like bootstrap so it is easy to integrate it with the existing application.
+- Showing the location, deadline, signup and details option.
 
 ## How to Use?
 Clone this repo, cd events-app, npm install, npm start
