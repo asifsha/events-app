@@ -65,7 +65,8 @@ class ServiceApi {
         past: false,
         status: "Expected 200 Participants, 7 Companies, 20 Positions",
         image: "images/calgary1.jpg",
-        flag: "images/canadaflag.png"
+        flag: "images/canadaflag.png",
+        premium: true
       },
 
       {
