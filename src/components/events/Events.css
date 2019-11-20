@@ -1,3 +1,4 @@
+@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
 ul {
   list-style-type: none;
   margin: 0;
@@ -138,7 +139,7 @@ img {
   animation: ContentFadeIn 0.8s 1.6s forwards;
 }
 .deadline {
-  color: #ff6666;
+  color: #ff1a8c;
 }
 .card__svg {
   position: absolute;
@@ -229,13 +230,14 @@ img {
   text-align: left;
 }
 .Collapsible__trigger:after {
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   content: "\f107";
   position: absolute;
   right: 10px;
   top: 10px;
   display: block;
   transition: transform 300ms;
+  font-weight: 900;
 }
 .Collapsible__trigger.is-open:after {
   transform: rotateZ(180deg);
@@ -307,7 +309,7 @@ img {
 }
 .button {
   display: inline-block;  
-  background-color: #f4511e;
+  background-color: #b30059;
   border: 2px;
   color: #FFFFFF;
   text-align: center;
